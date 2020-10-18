@@ -13,7 +13,7 @@
     'website': "http://www.dacosys.com",
 
     'category': 'Events',
-    'version': '12.0.1',
+    'version': '12.0.2',
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'l10n_ar_account'],
