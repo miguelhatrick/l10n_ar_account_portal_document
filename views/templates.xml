@@ -5,7 +5,7 @@
 <!--        <xpath expr="//label[@for='company_name']/.." position="replace">-->
 <!--        </xpath>-->
 
-        <xpath expr="//button[@name='csrf_token']/.." position="before">
+        <xpath expr="//input[@name='csrf_token']/.." position="before">
             <t t-call="l10n_ar_partner.partner_info"/>
         </xpath>
 <!--
