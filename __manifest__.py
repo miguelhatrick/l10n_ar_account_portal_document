@@ -6,8 +6,7 @@
         Add document type to portal (Argentina)""",
 
     'description': """
-        With this module you're able to create different memberships, the subscribers are allowed to select the sessions
-        that they're going and check their billing.
+        Used to fix 'var' -> 'document_id' problems in the portal.
     """,
 
     'author': "Miguel Hatrick",
@@ -17,7 +16,7 @@
     'version': '12.0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','l10n_ar_account'],
+    'depends': ['base', 'l10n_ar_account'],
 
     # always loaded
     'data': [

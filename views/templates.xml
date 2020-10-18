@@ -2,16 +2,11 @@
     <data>
     <template id="portal_my_address_document" name="portal_my_address_document" inherit_id="website_sale.address">
 
-<!--        <xpath expr="//label[@for='company_name']/.." position="replace">-->
-<!--        </xpath>-->
+<!--        NOT WORKING, NEED TO MODIFY THE CONTROLLER TO ADD SOME FUNCTIONALITY-->
 
-        <xpath expr="//input[@name='csrf_token']/.." position="before">
-            <t t-call="l10n_ar_partner.partner_info"/>
-        </xpath>
-<!--
-        <xpath expr="//div[@t-if='has_check_vat']" position="attributes">
-            <attribute name="t-if">False</attribute>
-        </xpath>-->
+<!--        <xpath expr="//input[@name='csrf_token']/.." position="before">-->
+<!--            <t t-call="l10n_ar_partner.partner_info"/>-->
+<!--        </xpath>-->
 
     </template>
     </data>
