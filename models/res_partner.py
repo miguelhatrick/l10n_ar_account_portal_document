@@ -16,10 +16,10 @@ class ResCustomPartner(models.Model):
         """Custom function to copy the vat into l8n_ar document_id"""
 
         # if vat is available, set the DNI data as a copy of it
-        if vals['vat']:
-            vals['main_id_number'] = vals['vat']
-            vals['main_id_category_id'] = 35
-            vals['afip_responsability_type_id'] = 6
+        # if vals['vat']:
+        vals['main_id_number'] = vals['vat']
+        vals['main_id_category_id'] = 35
+        vals['afip_responsability_type_id'] = 6
 
         result = super(ResCustomPartner, self).create(vals)
         return result
