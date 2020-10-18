@@ -1,10 +1,11 @@
 # Copyright (C)
 # Copyright 2020- Miguel Hatrick(<http://www.dacosys.com>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-import pdb
-from datetime import datetime
-
+import logging
 from odoo import fields, models, api
+
+
+_logger = logging.getLogger(__name__)
 
 
 class ResCustomPartner(models.Model):
@@ -17,6 +18,9 @@ class ResCustomPartner(models.Model):
 
         # if vat is available, set the DNI data as a copy of it
         # if vals['vat']:
+
+        _logger.info('Copying VAT ID to Document_ID ... ')
+
         vals['main_id_number'] = vals['vat']
         vals['main_id_category_id'] = 35
         vals['afip_responsability_type_id'] = 6
