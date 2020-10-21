@@ -2,6 +2,8 @@
 # Copyright 2020- Miguel Hatrick(<http://www.dacosys.com>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 import logging
+import pdb
+
 from odoo import fields, models, api
 
 
@@ -16,17 +18,30 @@ class ResCustomPartner(models.Model):
     def create(self, vals):
         """Custom function to copy the vat into l8n_ar document_id"""
 
-        # if vat is available, set the DNI data as a copy of it
-        # if vals['vat']:
 
-        _logger.info('Copying VAT ID to Document_ID ... ')
 
-        vals['main_id_number'] = vals['vat']
-        vals['main_id_category_id'] = 35
-        vals['afip_responsability_type_id'] = 6
+
 
         result = super(ResCustomPartner, self).create(vals)
         return result
+
+    @api.multi
+    def write(self, vals):
+
+        # if vat is available, set the DNI data as a copy of it
+        if 'vat' in vals and vals['vat'] and not self.main_id_number:
+            _logger.info('Copying VAT ID to Document_ID ... ')
+
+            vals['main_id_number'] = vals['vat']
+            vals['main_id_category_id'] = 35
+            vals['afip_responsability_type_id'] = 6
+
+        result = super(ResCustomPartner, self).write(vals)
+        # Update
+
+        return result
+
+
 
     # select id, vat, main_id_number, main_id_category_id,afip_responsability_type_id from res_partner where name like '%hatrick%'
 
