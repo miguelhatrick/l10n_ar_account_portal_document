@@ -27,7 +27,7 @@ class ResCustomPartner(models.Model):
 
     @api.multi
     def write(self, vals):
-
+        _logger.info('if vat is available, set the DNI data as a copy of it ... ')
         # if vat is available, set the DNI data as a copy of it
         if 'vat' in vals and vals['vat'] and not self.main_id_number:
             _logger.info('Copying VAT ID to Document_ID ... ')
